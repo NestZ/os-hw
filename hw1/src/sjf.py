@@ -6,6 +6,7 @@ class ShortestJobFirst:
 
     def run(self):
         self.p_lst.sort()
+        num_process = len(self.p_lst)
         sum_time = 0
         wait_time = 0
         res_time = 0
@@ -16,6 +17,6 @@ class ShortestJobFirst:
             wait_time += sum_time
             res_time += sum_time
         return Result(sum_time,
-                wait_time / len(self.p_lst),
-                res_time / len(self.p_lst),
-                turn_around_time / len(self.p_lst))
+                wait_time / num_process,
+                res_time / num_process,
+                turn_around_time / num_process)
