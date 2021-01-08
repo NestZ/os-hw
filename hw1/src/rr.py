@@ -7,6 +7,7 @@ class RoundRobin:
         self.cont_sw_time = cont_sw_time
     
     def run(self):
+        num_process = len(self.p_lst)
         sum_time = 0
         exec_cnt = 0
         res_time = 0
@@ -37,6 +38,6 @@ class RoundRobin:
             wait_time += p.avg_wait_time
             res_time += p.res_time
         return Result(sum_time,
-                wait_time / len(self.p_lst),
-                res_time / len(self.p_lst),
-                turn_around_time / len(self.p_lst))
+                wait_time / num_process,
+                res_time / num_process,
+                turn_around_time / num_process)
